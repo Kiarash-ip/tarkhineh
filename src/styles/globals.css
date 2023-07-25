@@ -2,26 +2,226 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  font-family: var(--font-base);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  h1 {
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 61.6px;
+  }
+
+  h2 {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px; /* 56px */
+  }
+
+  h3 {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44.8px; /* 44.8px */
+    text-transform: capitalize;
+  }
+
+  h4 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 33.6px; /* 33.6px */
+    text-transform: capitalize;
+  }
+
+  h5 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 28px */
+  }
+
+  h6 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px; /* 36px */
+    text-transform: capitalize;
+  }
+
+  .body-xl {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; /* 36px */
+    text-transform: capitalize;
+  }
+  .body-lg {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; /* 36px */
+    text-transform: capitalize;
+  }
+  .body-md {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; /* 36px */
+    text-transform: capitalize;
+  }
+  .body-sm {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; /* 36px */
+    text-transform: capitalize;
+  }
+
+  .button-lg {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28.8px;
+    text-transform: capitalize;
+  }
+
+  .button-md {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: capitalize;
+  }
+
+  .caption-lg {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21.6px; /* 21.6px */
+    text-transform: capitalize;
+  }
+
+  .caption-md {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21.6px; /* 21.6px */
+    text-transform: capitalize;
+  }
+
+  .caption-sm {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21.6px; /* 21.6px */
+    text-transform: capitalize;
+  }
+
+  .overline-lg {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28.8px; /* 28.8px */
+  }
+
+  .overline-sm {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.8px;
+  }
+
+  .navbar-link {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 28px */
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+.navbar-link.active {
+  @apply font-bold border-b-2 border-primary-400 text-primary-400;
+}
+
+.slider-banner-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #000;
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      0deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.55) 100%
+    ),
+    linear-gradient(0deg, rgba(33, 64, 43, 0.5) 0%, rgba(33, 64, 43, 0.5) 100%);
+  background-blend-mode: normal, overlay, normal;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper__banner__pagination__bullet {
+  @apply w-2 h-2 rounded-full inline-block bg-neutral-600 ml-1 z-40;
+}
+
+.swiper__banner__pagination__bullet.swiper-pagination-bullet-active {
+  @apply w-[14px] h-[14px] bg-primary-400 border-2 border-primary-50;
+}
+
+.navigation-dropdown-menu > ul > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  height: 1px;
+  @apply bg-neutral-400 left-2 right-2;
+}
+
+.navigation-dropdown-menu > ul > li:first-child {
+  @apply rounded-t;
+}
+
+.navigation-dropdown-menu > ul > li:last-child {
+  @apply rounded-b;
+}
+
+.navigation-dropdown-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
+}
+
+.navigation-dropdown-menu.open {
+  grid-template-rows: 1fr;
+}
+
+.food__cart--shadow {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.09),
+    0px 9px 5px 0px rgba(0, 0, 0, 0.05), 0px 16px 6px 0px rgba(0, 0, 0, 0.01),
+    0px 25px 7px 0px rgba(0, 0, 0, 0);
+}
+
+.branch__cart:hover {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.09),
+    0px 9px 5px 0px rgba(0, 0, 0, 0.05), 0px 16px 6px 0px rgba(0, 0, 0, 0.01),
+    0px 25px 7px 0px rgba(0, 0, 0, 0);
+}
+
+.custom__text__input--container:has(input:focus) fieldset {
+  @apply border-primary-400;
+}
+
+.focused__label {
+  @apply text-primary-400 top-0 scale-90;
 }
