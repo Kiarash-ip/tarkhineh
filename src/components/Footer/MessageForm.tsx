@@ -38,12 +38,14 @@ const MessageForm = () => (
               type="email"
             />
           </div>
-          <CustomTextInput
-            label="پیام شما"
-            name="message"
-            multiline={true}
-            rows={5}
-          />
+          <div>
+            <CustomTextInput
+              label="پیام شما"
+              name="message"
+              multiline={true}
+              rows={5}
+            />
+          </div>
         </div>
         <button
           type="submit"

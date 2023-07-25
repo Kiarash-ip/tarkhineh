@@ -1,5 +1,7 @@
 import Link from "next/link";
 import NavigationItem from "./NavigationItem";
+import MyModal from "../globals/BranchesModal";
+import { useEffect, useRef } from "react";
 
 export interface Menu {
   title: string;
@@ -11,6 +13,7 @@ interface menuListProp {
   id: number;
   title: string;
   href: string;
+  popup: boolean;
   menu?: Menu[];
 }
 
@@ -18,11 +21,13 @@ const menuList: menuListProp[] = [
   {
     id: 0,
     title: "صفحه اصلی",
+    popup: false,
     href: "/",
   },
   {
     id: 1,
     title: "شعبه",
+    popup: false,
     href: "",
     menu: [
       {
@@ -51,6 +56,7 @@ const menuList: menuListProp[] = [
     id: 2,
     title: "منو",
     href: "",
+    popup: true,
     menu: [
       {
         id: 0,
@@ -77,34 +83,40 @@ const menuList: menuListProp[] = [
   {
     id: 3,
     title: "اعطای نمایندگی",
+    popup: false,
     href: "",
   },
   {
     id: 4,
     title: "درباره ما",
+    popup: false,
     href: "",
   },
   {
     id: 5,
     title: "تماس با ما",
+    popup: false,
     href: "",
   },
 ];
 
 export default function Navigation() {
   return (
-    <ul className="mx-auto flex items-center gap-6">
-      {menuList.map((item, index) => {
-        return (
-          <NavigationItem
-            index={index}
-            key={item.id}
-            title={item.title}
-            href={item.href}
-            menu={item.menu}
-          />
-        );
-      })}
-    </ul>
+    <>
+      <ul className="mx-auto flex items-center gap-6">
+        {menuList.map((item, index) => {
+          return (
+            <NavigationItem
+              index={index}
+              key={item.id}
+              title={item.title}
+              href={item.href}
+              menu={item.menu}
+              popup={item.popup}
+            />
+          );
+        })}
+      </ul>
+    </>
   );
 }

@@ -54,30 +54,37 @@ const CustomTextInput = ({
 
   return (
     <RtlProvider>
-      <CustomTextField
-        size="small"
-        fullWidth
-        rows={rows}
-        InputLabelProps={{
-          sx: {
-            fontFamily: "inherit",
-            color: tw_theme?.colors.neutral[200],
-          },
-        }}
-        {...field}
-        inputProps={{
-          style: {
-            // height: "100%",
-          },
-        }}
-        id="outlined-basic"
-        label={label}
-        multiline={multiline}
-        variant="outlined"
-        placeholder={props.placeholder}
-        error={meta.touched && Boolean(meta.error)}
-        helperText={meta.touched && meta.error}
-      />
+      <>
+        <CustomTextField
+          size="small"
+          fullWidth
+          rows={rows}
+          InputLabelProps={{
+            sx: {
+              fontFamily: "inherit",
+              color: tw_theme?.colors.neutral[200],
+            },
+          }}
+          {...field}
+          inputProps={{
+            style: {
+              // height: "100%",
+            },
+          }}
+          id="outlined-basic"
+          label={label}
+          multiline={multiline}
+          variant="outlined"
+          placeholder={props.placeholder}
+          error={meta.touched && Boolean(meta.error)}
+          helperText={meta.touched && meta.error}
+        />
+        {multiline ? (
+          <span className="block text-left mt-1 text-neutral-500 text-xs font-normal">
+            200 / {meta.value.length}
+          </span>
+        ) : null}
+      </>
     </RtlProvider>
   );
 };
