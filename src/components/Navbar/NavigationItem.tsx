@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import type { Menu } from "./Navigation";
 import { useState, useEffect, useRef } from "react";
-import BranchesModal from "../globals/BranchesModal";
+import BranchesModal from "../Modals/BranchesModal";
 
 interface NavItemProps {
   title: string;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import NavigationItem from "./NavigationItem";
-import MyModal from "../globals/BranchesModal";
+import MyModal from "../Modals/BranchesModal";
 import { useEffect, useRef } from "react";
 
 export interface Menu {
