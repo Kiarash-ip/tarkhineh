@@ -1,7 +1,7 @@
 import React from "react";
 
 interface BranchModalCartProps {
-  src: string;
+  src: string[];
   branch_name: string;
   branch_address: string;
   href: string;
@@ -16,7 +16,7 @@ export default function BranchModalCart({
   return (
     <div className="max-w-[177px] group branch__cart transition-transform relative  flex flex-col items-center border border-neutral-500 rounded-lg overflow-hidden hover:-translate-y-4 cursor-pointer">
       <div className="w-full h-[179px] aspect-square mb-2">
-        <img src={src} className="w-full h-full object-cover " />
+        <img src={src[0]} className="w-full h-full object-cover " />
       </div>
       <h6 className="button-lg mb-1 text-neutral-900">{branch_name}</h6>
       <div className="grow flex items-center mx-2">

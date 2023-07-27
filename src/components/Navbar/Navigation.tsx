@@ -103,7 +103,7 @@ const menuList: menuListProp[] = [
 export default function Navigation() {
   return (
     <>
-      <ul className="mx-auto flex items-center gap-6">
+      <ul className="mx-auto flex items-stretch gap-6">
         {menuList.map((item, index) => {
           return (
             <NavigationItem

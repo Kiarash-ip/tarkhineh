@@ -55,14 +55,12 @@ export default function Profile() {
   }, [menuRef]);
 
   return (
-    <div className="relative flex items-center justify-center p-2 rounded bg-primary-50 cursor-pointer">
-      <button
-        className={clsx(
-          "flex items-end text-primary-400",
-          open ? "pointer-events-none" : "pointer-events-auto"
-        )}
-        onClick={() => setOpen(true)}
-      >
+    <div
+      className="relative flex items-center justify-center p-2 rounded bg-primary-50 cursor-pointer"
+      onPointerEnter={() => setOpen(true)}
+      onPointerLeave={() => setOpen(false)}
+    >
+      <button className={clsx("flex items-end text-primary-400")}>
         <svg width="24" height="24" viewBox="0 0 24 24">
           <use xlinkHref="/svg/user.svg#user" href="/svg/user.svg#user"></use>
         </svg>
@@ -78,7 +76,7 @@ export default function Profile() {
 
       <div
         className={clsx(
-          "absolute top-full left-0 bg-white z-10 min-w-[144px] rounded navigation-dropdown-menu translate-y-3 shadow-[0px_0px_6px_0px_rgba(0, 0, 0, 0.15)]",
+          "absolute top-full left-0 bg-white z-10 min-w-[144px] rounded navigation-dropdown-menu translate-y-3 shadow-[0px_0px_6px_0px_#00000026]",
           open ? "open" : ""
         )}
         ref={menuRef}

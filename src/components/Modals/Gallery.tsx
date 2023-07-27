@@ -1,8 +1,18 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { forwardRef, useImperativeHandle } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
-const Gallery = forwardRef(function Gallery(props, ref) {
+const Gallery = forwardRef(function Gallery(
+  { images }: { images: string[] },
+  ref
+) {
+  const [swiperInstance, setSwiperInstance] = useState<SwiperCore>();
+  const [currentSlide, setCurrentSlide] = useState(0);
   let [isOpen, setIsOpen] = useState(false);
 
   useImperativeHandle(
@@ -26,16 +36,6 @@ const Gallery = forwardRef(function Gallery(props, ref) {
 
   return (
     <>
-      {/* <div className="fixed inset-0 flex items-center justify-center">
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          Open dialog
-        </button>
-      </div> */}
-
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -61,29 +61,66 @@ const Gallery = forwardRef(function Gallery(props, ref) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                <Dialog.Panel
+                  className="relative flex justify-end items-end w-full max-w-4xl h-[441px] transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all"
+                  style={{
+                    background: `url(${images[currentSlide]}) center/cover no-repeat`,
+                  }}
+                >
+                  {/* Close Button */}
+                  <button
+                    className="absolute left-6 top-6 cursor-pointer w-10 h-10 text-white"
+                    onClick={closeModal}
                   >
-                    Payment successful
-                  </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
-                    </p>
-                  </div>
-
-                  <div className="mt-4">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
-                    >
-                      Got it, thanks!
-                    </button>
-                  </div>
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                      <use
+                        xlinkHref="/svg/close-icon.svg#x-mark"
+                        href="/svg/close-icon.svg#x-mark"
+                      ></use>
+                    </svg>
+                  </button>
+                  {/* =========== */}
+                  <Swiper
+                    className="mySwiper w-full h-[88px] mb-8"
+                    centeredSlides
+                    spaceBetween={32}
+                    onSlideChange={(swiper) => {
+                      setCurrentSlide(swiper.activeIndex);
+                    }}
+                    slidesPerView={"auto"}
+                    onSwiper={setSwiperInstance}
+                  >
+                    {images.map((image, index) => {
+                      return (
+                        <SwiperSlide
+                          key={index}
+                          style={{
+                            width:
+                              swiperInstance?.activeIndex === index
+                                ? "88px"
+                                : "72px",
+                          }}
+                          onClick={() => {
+                            swiperInstance?.slideTo(index);
+                            setCurrentSlide(index);
+                          }}
+                        >
+                          <div className="w-full h-full flex items-center">
+                            <img
+                              src={image}
+                              style={{
+                                border:
+                                  swiperInstance?.activeIndex === index
+                                    ? "1px solid #fff"
+                                    : "none",
+                              }}
+                              className="w-full aspect-square object-cover rounded"
+                            />
+                          </div>
+                        </SwiperSlide>
+                      );
+                    })}
+                  </Swiper>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

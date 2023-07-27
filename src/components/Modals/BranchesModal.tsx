@@ -8,7 +8,7 @@ interface BranchList {
   branch_name: string;
   branch_address: string;
   href: string;
-  src: string;
+  src: string[];
 }
 
 const branchesList: BranchList[] = [
@@ -17,7 +17,14 @@ const branchesList: BranchList[] = [
     branch_name: "شعبه اکباتان",
     branch_address: "شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم",
     href: "",
-    src: "/images/branch-1.jpeg",
+    src: [
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+    ],
   },
   {
     id: 1,
@@ -25,21 +32,50 @@ const branchesList: BranchList[] = [
     branch_address:
       "چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی",
     href: "",
-    src: "/images/branch-1.jpeg",
+    src: [
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-1.jpeg",
+    ],
   },
   {
     id: 2,
     branch_name: "شعبه اقدسیه",
     branch_address: "خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸",
     href: "",
-    src: "/images/branch-2.jpeg",
+    src: [
+      "/images/branch-2.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-2.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-2.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-2.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-2.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-2.jpeg",
+      "/images/branch-1.jpeg",
+      "/images/branch-2.jpeg",
+    ],
   },
   {
     id: 3,
     branch_name: "شعبه ونک",
     branch_address: "میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶",
     href: "",
-    src: "/images/branch-3.png",
+    src: [
+      "/images/branch-3.png",
+      "/images/branch-3.png",
+      "/images/branch-3.png",
+      "/images/branch-3.png",
+      "/images/branch-3.png",
+      "/images/branch-3.png",
+      "/images/branch-3.png",
+    ],
   },
 ];
 
@@ -101,13 +137,15 @@ const BranchesModal = forwardRef(function BranchesModal(props, ref) {
                       انتخاب شعبه
                     </Dialog.Title>
                     <button
-                      className="absolute left-0 top-1/2 cursor-pointer -translate-y-1/2 w-10 h-10"
+                      className="absolute left-0 top-1/2 cursor-pointer -translate-y-1/2 w-10 h-10 text-neutral-800"
                       onClick={closeModal}
                     >
-                      <img
-                        src="/svg/close-icon.svg"
-                        className="w-full h-full object-contain"
-                      />
+                      <svg width="40" height="40" viewBox="0 0 40 40">
+                        <use
+                          xlinkHref="/svg/close-icon.svg#x-mark"
+                          href="/svg/close-icon.svg#x-mark"
+                        ></use>
+                      </svg>
                     </button>
                   </div>
 

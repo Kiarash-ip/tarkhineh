@@ -7,7 +7,7 @@ import Profile from "./Profile";
 export default function Navbar() {
   return (
     <header>
-      <nav className="container mx-auto flex items-center py-8">
+      <nav className="container mx-auto flex items-stretch py-8">
         <Logo />
         <Navigation />
         <div className="flex items-center gap-2">
