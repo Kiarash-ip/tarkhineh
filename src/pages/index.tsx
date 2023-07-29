@@ -1,13 +1,13 @@
-import Layout from "@/components/layout";
-import BannerSlider from "@/components/bannerSlider";
-import RestaurantMenu from "@/components/MainPage/RestaurantMenu";
-import About from "@/components/MainPage/About";
-import Branches from "@/components/MainPage/Branches";
+import MainLayout from "@/common/layout/MainLayout";
+import CarouselBanner from "@/common/components/CarouselBanner";
+import RestaurantMenu from "@/modules/HomePage/components/ResturantMenu";
+import About from "@/modules/HomePage/components/About";
+import Branches from "@/modules/HomePage/components/Branches";
 
 const Home = () => {
   return (
     <>
-      <BannerSlider />
+      <CarouselBanner />
       <RestaurantMenu />
       <About />
       <Branches />
@@ -17,6 +17,6 @@ const Home = () => {
 
 export default Home;
 
-Home.getLayout = function getLayout(page: React.ReactElement) {
-  return <Layout>{page}</Layout>;
+Home.getLayout = function getLayout(page: React.ReactNode) {
+  return <MainLayout>{page}</MainLayout>;
 };

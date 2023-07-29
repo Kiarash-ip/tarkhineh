@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { forwardRef, useImperativeHandle } from "react";
-import BranchModalCart from "../globals/BranchModalCart";
+import BranchModalCart from "./BranchModalCart";
 
 interface BranchList {
   id: number;

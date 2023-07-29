@@ -1,30 +1,29 @@
 import React from "react";
 import Link from "next/link";
-import UserWhite from "@@/public/svg/user-white.svg";
+import UserIcon from "@@/public/svg/user.svg";
 import Diagram from "@@/public/svg/diagram.svg";
 import HomeWifi from "@@/public/svg/home-wifi.svg";
 import MenuBoard from "@@/public/svg/menu-board.svg";
-import Card from "./Card";
 
 const cardsList = [
   {
     id: 0,
-    icon: UserWhite,
+    Icon: UserIcon,
     title: "پرسنلی مجرب و حرفه‌ای",
   },
   {
     id: 1,
-    icon: Diagram,
+    Icon: Diagram,
     title: "کیفیت بالای غذاها",
   },
   {
     id: 2,
-    icon: HomeWifi,
+    Icon: HomeWifi,
     title: "محیطی دلنشین و آرام",
   },
   {
     id: 3,
-    icon: MenuBoard,
+    Icon: MenuBoard,
     title: "منوی متنوع",
   },
 ];
@@ -55,7 +54,16 @@ export default function About() {
         </div>
         <div className="grid grid-cols-2 mr-auto gap-x-6 gap-y-2 [&>div:last-child]:gap-4 [&>div:first-child]:gap-4">
           {cardsList.map((card) => {
-            return <Card key={card.id} icon={card.icon} title={card.title} />;
+            const { Icon, title } = card;
+            return (
+              <div
+                key={card.id}
+                className="flex flex-col items-center gap-1 px-3 py-4 text-white"
+              >
+                <Icon className="w-12 h-12" />
+                <p className="body-lg">{title}</p>
+              </div>
+            );
           })}
         </div>
       </div>

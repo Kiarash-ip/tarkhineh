@@ -7,7 +7,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const Gallery = forwardRef(function Gallery(
+const GalleryModal = forwardRef(function GalleryModal(
   { images }: { images: string[] },
   ref
 ) {
@@ -131,4 +131,4 @@ const Gallery = forwardRef(function Gallery(
   );
 });
 
-export default Gallery;
+export default GalleryModal;

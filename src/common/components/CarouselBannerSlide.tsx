@@ -1,12 +1,15 @@
 import Image from "next/image";
 import React from "react";
 
-interface SlideItemProps {
+interface CarouselBannerSlideProps {
   src: string;
   title: string;
 }
 
-export default function SlideItem({ src, title }: SlideItemProps) {
+export default function CarouselBannerSlide({
+  src,
+  title,
+}: CarouselBannerSlideProps) {
   return (
     <div
       className="w-full h-full relative slider-banner-gradient"

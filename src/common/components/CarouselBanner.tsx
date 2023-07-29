@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Pagination, Autoplay } from "swiper/modules";
 
@@ -8,7 +8,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import SlideItem from "./SlideItem";
+import CarouselBannerSlide from "./CarouselBannerSlide";
 
 interface SliderList {
   id: number;
@@ -34,7 +34,7 @@ const sliderList: SliderList[] = [
   },
 ];
 
-export default function BannerSlider() {
+export default function CarouselBanner() {
   const [swiperInstance, setSwiperInstance] = useState<SwiperCore>();
   return (
     <section className="h-[336px] relative">
@@ -58,7 +58,7 @@ export default function BannerSlider() {
         {sliderList.map((item) => {
           return (
             <SwiperSlide key={item.id}>
-              <SlideItem src={item.src} title={item.title} />
+              <CarouselBannerSlide src={item.src} title={item.title} />
             </SwiperSlide>
           );
         })}

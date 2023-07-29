@@ -1,10 +1,10 @@
-import Logo from "../globals/Logo";
 import Navigation from "./Navigation";
+import Logo from "@/common/components/Logo";
 import Search from "./Search";
 import Cart from "./Cart";
 import Profile from "./Profile";
 
-export default function Navbar() {
+export default function Header() {
   return (
     <header>
       <nav className="container mx-auto flex items-stretch py-8">

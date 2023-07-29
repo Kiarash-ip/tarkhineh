@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import Gallery from "@/components/Modals/Gallery";
+import GalleryModal from "./GalleryModal";
 import type { Modal } from "@/types/modal";
 
 export interface BranchCartProps {
@@ -70,7 +70,7 @@ const BranchCart = function (props: BranchCartProps) {
           </Link>
         </div>
       </div>
-      <Gallery ref={modalRef} images={src} />
+      <GalleryModal ref={modalRef} images={src} />
     </>
   );
 };

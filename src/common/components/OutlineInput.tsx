@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { Formik, Form, useField, FieldHookConfig } from "formik";
 import TextField, { TextFieldProps } from "@mui/material/TextField";
 import * as Yup from "yup";
-import RtlProvider from "./RtlProvider";
-import tailwindConfig from "@@/tailwind.config";
+import RtlProvider from "../providers/RtlProvider";
+import tailwindConfig from "@root/tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
 import { styled } from "@mui/material/styles";
 
@@ -44,7 +44,7 @@ const CustomTextField = styled(TextField)<TextFieldProps>(({ theme }) => ({
   },
 }));
 
-const CustomTextInput = ({
+const OutlineInput = ({
   label,
   multiline = false,
   rows = 1,
@@ -89,4 +89,4 @@ const CustomTextInput = ({
   );
 };
 
-export default CustomTextInput;
+export default OutlineInput;

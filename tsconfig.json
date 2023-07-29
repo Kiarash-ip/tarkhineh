@@ -16,7 +16,7 @@
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@@/*": ["./*"]
+      "@root/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.js"],

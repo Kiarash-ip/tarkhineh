@@ -5,9 +5,9 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import type { Menu } from "./Navigation";
 import { useState, useEffect, useRef } from "react";
-import BranchesModal from "../Modals/BranchesModal";
+import BranchesModal from "@/common/components/BranchesModal";
 import DropDownMenu from "./DropDownMenu";
-import ArrowDown from "../globals/ArrowDown";
+import ArrowDown from "@@/public/svg/arrow-down.svg";
 
 interface NavItemProps {
   title: string;

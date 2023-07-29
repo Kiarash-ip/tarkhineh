@@ -1,10 +1,16 @@
 import { clsx } from "clsx";
 import { useRef, useState, useEffect } from "react";
+import ArrowDown from "@@/public/svg/arrow-down.svg";
+import UserIcon from "@@/public/svg/user.svg";
+import WalletIcon from "@@/public/svg/wallet-2.svg";
+import HeartIcon from "@@/public/svg/heart.svg";
+import LocationIcon from "@@/public/svg/location.svg";
+import LogOutIcon from "@@/public/svg/logout.svg";
 
 interface MenuList {
   id: number;
   title: string;
-  icon: string;
+  Icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   href: string;
 }
 
@@ -12,31 +18,31 @@ const menuList: MenuList[] = [
   {
     id: 0,
     title: "پروفایل",
-    icon: "/svg/user.svg",
+    Icon: UserIcon,
     href: "",
   },
   {
     id: 1,
     title: "پیگیری سفارش",
-    icon: "/svg/wallet-2.svg",
+    Icon: WalletIcon,
     href: "",
   },
   {
     id: 2,
     title: "علاقه‌مندی‌ها",
-    icon: "/svg/heart.svg",
+    Icon: HeartIcon,
     href: "",
   },
   {
     id: 3,
     title: "آدرس‌های من",
-    icon: "/svg/location.svg",
+    Icon: LocationIcon,
     href: "",
   },
   {
     id: 4,
     title: "خروج از حساب",
-    icon: "/svg/logout.svg",
+    Icon: LogOutIcon,
     href: "",
   },
 ];
@@ -61,17 +67,8 @@ export default function Profile() {
       onPointerLeave={() => setOpen(false)}
     >
       <button className={clsx("flex items-end text-primary-400")}>
-        <svg width="24" height="24" viewBox="0 0 24 24">
-          <use xlinkHref="/svg/user.svg#user" href="/svg/user.svg#user"></use>
-        </svg>
-        <div>
-          <svg width="17" height="17" viewBox="0 0 17 17">
-            <use
-              xlinkHref="/svg/arrow-down.svg#arrow-down"
-              href="/svg/arrow-down.svg#arrow-down"
-            ></use>
-          </svg>
-        </div>
+        <UserIcon className="w-6 h-6" />
+        <ArrowDown />
       </button>
 
       <div
@@ -83,13 +80,14 @@ export default function Profile() {
       >
         <ul className="flex flex-col overflow-hidden">
           {menuList.map((item) => {
+            const { Icon, id, title } = item;
             return (
               <li
-                key={item.id}
+                key={id}
                 className="relative flex items-center gap-1 body-sm cursor-pointer text-neutral-900 hover:bg-neutral-400 transition-colors px-2"
               >
-                <img src={item.icon} className="w-4 h-4" />
-                {item.title}
+                <Icon className="w-4 h-4" />
+                {title}
               </li>
             );
           })}

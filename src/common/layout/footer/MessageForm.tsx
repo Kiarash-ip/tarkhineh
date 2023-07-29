@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import InfoCircle from "@@/public/svg/info-circle.svg";
-import CustomTextInput from "../globals/CustomTextInput";
+import OutlineInput from "@/common/components/OutlineInput";
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -30,16 +30,16 @@ const MessageForm = () => (
       <Form>
         <div className="grid grid-cols-2 gap-x-6 mb-2">
           <div className="grid gap-y-3">
-            <CustomTextInput label="نام و نام خانوادگی" name="fullName" />
-            <CustomTextInput label="شماره تماس" name="phoneNumber" type="tel" />
-            <CustomTextInput
+            <OutlineInput label="نام و نام خانوادگی" name="fullName" />
+            <OutlineInput label="شماره تماس" name="phoneNumber" type="tel" />
+            <OutlineInput
               label="آدرس ایمیل (اختیاری)"
               name="email"
               type="email"
             />
           </div>
           <div>
-            <CustomTextInput
+            <OutlineInput
               label="پیام شما"
               name="message"
               multiline={true}
