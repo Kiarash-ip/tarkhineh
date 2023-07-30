@@ -67,18 +67,18 @@ export default function Profile() {
       onPointerLeave={() => setOpen(false)}
     >
       <button className={clsx("flex items-end text-primary-400")}>
-        <UserIcon className="w-6 h-6" />
+        <UserIcon className="lg:w-6 lg:h-6 w-5 h-5" />
         <ArrowDown />
       </button>
 
       <div
         className={clsx(
-          "absolute top-full left-0 bg-white z-10 min-w-[144px] rounded navigation-dropdown-menu translate-y-3 shadow-[0px_0px_6px_0px_#00000026]",
+          "absolute top-full left-0 z-10 min-w-[144px] navigation-dropdown-menu ",
           open ? "open" : ""
         )}
         ref={menuRef}
       >
-        <ul className="flex flex-col overflow-hidden">
+        <ul className="flex flex-col overflow-hidden mt-3 bg-white shadow-[0px_0px_6px_0px_#00000026] rounded">
           {menuList.map((item) => {
             const { Icon, id, title } = item;
             return (

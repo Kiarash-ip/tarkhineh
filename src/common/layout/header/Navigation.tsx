@@ -1,6 +1,5 @@
 import Link from "next/link";
 import NavigationItem from "./NavigationItem";
-import MyModal from "../Modals/BranchesModal";
 import { useEffect, useRef } from "react";
 
 export interface Menu {
@@ -103,7 +102,7 @@ const menuList: menuListProp[] = [
 export default function Navigation() {
   return (
     <>
-      <ul className="mx-auto flex items-stretch gap-6">
+      <ul className="mx-auto flex items-stretch lg:gap-6 gap-3">
         {menuList.map((item, index) => {
           return (
             <NavigationItem

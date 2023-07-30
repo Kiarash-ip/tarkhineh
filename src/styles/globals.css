@@ -39,11 +39,7 @@ input:-webkit-autofill:active {
   }
 
   h4 {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 33.6px; /* 33.6px */
-    text-transform: capitalize;
+    @apply lg:text-2xl text-xl font-bold capitalize lg:leading-[33.6px] not-italic;
   }
 
   h5 {
@@ -62,11 +58,7 @@ input:-webkit-autofill:active {
   }
 
   .body-xl {
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 36px; /* 36px */
-    text-transform: capitalize;
+    @apply lg:text-xl text-base font-normal lg:leading-9 leading-8 capitalize;
   }
   .body-lg {
     font-size: 18px;
@@ -146,10 +138,11 @@ input:-webkit-autofill:active {
   }
 
   .navbar-link {
-    font-size: 20px;
+    @apply lg:text-xl text-base font-normal;
+    /* font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 28px; /* 28px */
+    line-height: 28px; 28px */
   }
 }
 
@@ -204,13 +197,18 @@ input:-webkit-autofill:active {
 }
 
 .navigation-dropdown-menu {
-  display: grid;
+  opacity: 0;
+  user-select: none;
+  scale: 0.95;
+  /* display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease-in-out;
+  */
+  transition: opacity, scale 0.15s ease-in-out;
 }
 
 .navigation-dropdown-menu.open {
-  grid-template-rows: 1fr;
+  opacity: 1;
+  scale: 1;
 }
 
 .food__cart--shadow {
@@ -225,12 +223,4 @@ input:-webkit-autofill:active {
     0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.09),
     0px 9px 5px 0px rgba(0, 0, 0, 0.05), 0px 16px 6px 0px rgba(0, 0, 0, 0.01),
     0px 25px 7px 0px rgba(0, 0, 0, 0);
-}
-
-.custom__text__input--container:has(input:focus) fieldset {
-  @apply border-primary-400;
-}
-
-.focused__label {
-  @apply text-primary-400 top-0 scale-90;
 }

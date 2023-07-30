@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from "react";
 import BranchesModal from "@/common/components/BranchesModal";
 import DropDownMenu from "./DropDownMenu";
 import ArrowDown from "@@/public/svg/arrow-down.svg";
+import type { ModalRef } from "@/common/types/modal";
 
 interface NavItemProps {
   title: string;
@@ -15,11 +16,6 @@ interface NavItemProps {
   index: number;
   popup: boolean;
   menu?: Menu[];
-}
-
-interface ModalRef {
-  openModal?: () => void;
-  closeModal?: () => void;
 }
 
 export default function NavigationItem({
@@ -49,7 +45,7 @@ export default function NavigationItem({
         <Link
           href={href}
           className={clsx(
-            "relative navbar-link  py-1 flex items-center gap-1",
+            "relative navbar-link  py-1 flex items-center gap-1 whitespace-nowrap",
             pathname === href ? "active" : ""
           )}
         >

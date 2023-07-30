@@ -31,7 +31,7 @@ const cardsList = [
 export default function About() {
   return (
     <section className="py-12 bg-about-background bg-no-repeat bg-cover bg-center">
-      <div className="container mx-auto flex">
+      <div className="container mx-auto flex gap-4">
         <div className="text-white w-1/2">
           <h4 className="mb-6">رستوران‌های زنجیره‌ای ترخینه</h4>
           <p className="body-xl mb-4">
@@ -43,7 +43,7 @@ export default function About() {
           </p>
           <Link
             href="#"
-            className="button-lg flex justify-center items-center gap-2 mr-auto px-4 py-2 w-[184px] rounded border border-white text-white"
+            className="lg:button-lg button-md flex justify-center items-center gap-2 mr-auto px-4 py-2 lg:w-[184px] w-[170px] rounded border border-white text-white"
           >
             <span>اطلاعات بیشتر</span>
             <img
@@ -61,7 +61,7 @@ export default function About() {
                 className="flex flex-col items-center gap-1 px-3 py-4 text-white"
               >
                 <Icon className="w-12 h-12" />
-                <p className="body-lg">{title}</p>
+                <p className="body-lg text-center">{title}</p>
               </div>
             );
           })}

@@ -18,12 +18,12 @@ export default function DropDownMenu({
   return (
     <div
       className={clsx(
-        "absolute top-full bg-white z-10 min-w-[144px] rounded navigation-dropdown-menu translate-y-2 shadow-[0px_0px_6px_0px_#00000026]",
+        "absolute top-full z-10 min-w-[144px]  navigation-dropdown-menu ",
         open ? "open" : "",
         index % 2 === 0 ? "right-0" : "left-0"
       )}
     >
-      <ul className="flex flex-col overflow-hidden">
+      <ul className="flex flex-col overflow-hidden rounded bg-white shadow-[0px_0px_6px_0px_#00000026]">
         {list.map((item) => {
           return (
             <li
