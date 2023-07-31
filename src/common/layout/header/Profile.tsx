@@ -1,11 +1,11 @@
 import { clsx } from "clsx";
 import { useRef, useState, useEffect } from "react";
-import ArrowDown from "@@/public/svg/arrow-down.svg";
-import UserIcon from "@@/public/svg/user.svg";
-import WalletIcon from "@@/public/svg/wallet-2.svg";
-import HeartIcon from "@@/public/svg/heart.svg";
-import LocationIcon from "@@/public/svg/location.svg";
-import LogOutIcon from "@@/public/svg/logout.svg";
+import ArrowDown from "@public/svg/arrow-down.svg";
+import UserIcon from "@public/svg/user.svg";
+import WalletIcon from "@public/svg/wallet-2.svg";
+import HeartIcon from "@public/svg/heart.svg";
+import LocationIcon from "@public/svg/location.svg";
+import LogOutIcon from "@public/svg/logout.svg";
 
 interface MenuList {
   id: number;
@@ -62,31 +62,31 @@ export default function Profile() {
 
   return (
     <div
-      className="relative flex items-center justify-center p-2 rounded bg-primary-50 cursor-pointer"
+      className="relative flex cursor-pointer items-center justify-center rounded bg-primary-50 p-1 sm:p-2"
       onPointerEnter={() => setOpen(true)}
       onPointerLeave={() => setOpen(false)}
     >
       <button className={clsx("flex items-end text-primary-400")}>
-        <UserIcon className="lg:w-6 lg:h-6 w-5 h-5" />
+        <UserIcon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
         <ArrowDown />
       </button>
 
       <div
         className={clsx(
-          "absolute top-full left-0 z-10 min-w-[144px] navigation-dropdown-menu ",
-          open ? "open" : ""
+          "navigation-dropdown-menu absolute left-0 top-full z-10 min-w-[144px] ",
+          open ? "open" : "",
         )}
         ref={menuRef}
       >
-        <ul className="flex flex-col overflow-hidden mt-3 bg-white shadow-[0px_0px_6px_0px_#00000026] rounded">
+        <ul className="mt-3 flex flex-col overflow-hidden rounded bg-white shadow-[0px_0px_6px_0px_#00000026]">
           {menuList.map((item) => {
             const { Icon, id, title } = item;
             return (
               <li
                 key={id}
-                className="relative flex items-center gap-1 body-sm cursor-pointer text-neutral-900 hover:bg-neutral-400 transition-colors px-2"
+                className="body-sm relative flex cursor-pointer items-center gap-1 px-2 text-neutral-900 transition-colors hover:bg-neutral-400"
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="h-4 w-4" />
                 {title}
               </li>
             );

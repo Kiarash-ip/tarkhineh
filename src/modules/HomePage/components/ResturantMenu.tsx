@@ -16,9 +16,9 @@ const menuList: MenuList[] = [
 
 export default function RestaurantMenu() {
   return (
-    <div className="container mx-auto mt-12 mb-[72px] flex flex-col gap-8 items-center">
+    <div className="container mx-auto mb-[72px] mt-12 flex flex-col items-center gap-8">
       <h4 className="text-neutral-900">منوی رستوران</h4>
-      <div className="w-full flex flex-wrap justify-center items-end gap-6">
+      <div className="grid w-full grid-cols-2 items-center gap-x-4 gap-y-8 sm:gap-x-6 md:grid-cols-4">
         {menuList.map((item) => {
           return <FoodCart key={item.id} src={item.src} title={item.title} />;
         })}

@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import UserIcon from "@@/public/svg/user.svg";
-import Diagram from "@@/public/svg/diagram.svg";
-import HomeWifi from "@@/public/svg/home-wifi.svg";
-import MenuBoard from "@@/public/svg/menu-board.svg";
+import UserIcon from "@public/svg/user.svg";
+import Diagram from "@public/svg/diagram.svg";
+import HomeWifi from "@public/svg/home-wifi.svg";
+import MenuBoard from "@public/svg/menu-board.svg";
+import OutlineButton from "@/common/components/OutlineButton";
+import ArrowRight from "@public/svg/arrow-right.svg";
 
 const cardsList = [
   {
@@ -30,9 +32,9 @@ const cardsList = [
 
 export default function About() {
   return (
-    <section className="py-12 bg-about-background bg-no-repeat bg-cover bg-center">
+    <section className="bg-about-background bg-cover bg-center bg-no-repeat py-12">
       <div className="container mx-auto flex gap-4">
-        <div className="text-white w-1/2">
+        <div className="w-1/2 text-white">
           <h4 className="mb-6">رستوران‌های زنجیره‌ای ترخینه</h4>
           <p className="body-xl mb-4">
             مهمان‌نوازی یکی از مهم‌ترین مشخصه‌های ایرانیان است و باعث افتخار
@@ -41,18 +43,14 @@ export default function About() {
             پایه معماری و طراحی مدرن در کنار طبیعتی دلنواز، غذایی سالم و درخور
             شان شما عزیزان ارائه دهیم.
           </p>
-          <Link
-            href="#"
-            className="lg:button-lg button-md flex justify-center items-center gap-2 mr-auto px-4 py-2 lg:w-[184px] w-[170px] rounded border border-white text-white"
+          <OutlineButton
+            clickHandler={() => {}}
+            Icon={() => <ArrowRight className="h-[24px] w-[24px] rotate-180" />}
           >
-            <span>اطلاعات بیشتر</span>
-            <img
-              src="/svg/arrow-right.svg"
-              className="rotate-180 w-[24px] h-[24px]"
-            />
-          </Link>
+            اطلاعات بیشتر
+          </OutlineButton>
         </div>
-        <div className="grid grid-cols-2 mr-auto gap-x-6 gap-y-2 [&>div:last-child]:gap-4 [&>div:first-child]:gap-4">
+        <div className="mr-auto grid grid-cols-2 gap-x-6 gap-y-2 [&>div:first-child]:gap-4 [&>div:last-child]:gap-4">
           {cardsList.map((card) => {
             const { Icon, title } = card;
             return (
@@ -60,7 +58,7 @@ export default function About() {
                 key={card.id}
                 className="flex flex-col items-center gap-1 px-3 py-4 text-white"
               >
-                <Icon className="w-12 h-12" />
+                <Icon className="h-12 w-12" />
                 <p className="body-lg text-center">{title}</p>
               </div>
             );

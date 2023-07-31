@@ -2,6 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import { forwardRef, useImperativeHandle } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import XMarkIcon from "@root/public/svg/close-icon.svg";
 import SwiperCore from "swiper";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -72,12 +73,7 @@ const GalleryModal = forwardRef(function GalleryModal(
                     className="absolute left-6 top-6 cursor-pointer w-10 h-10 text-white"
                     onClick={closeModal}
                   >
-                    <svg width="40" height="40" viewBox="0 0 40 40">
-                      <use
-                        xlinkHref="/svg/close-icon.svg#x-mark"
-                        href="/svg/close-icon.svg#x-mark"
-                      ></use>
-                    </svg>
+                    <XMarkIcon />
                   </button>
                   {/* =========== */}
                   <Swiper

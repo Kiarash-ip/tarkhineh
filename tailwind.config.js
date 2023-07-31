@@ -70,6 +70,8 @@ module.exports = {
           "linear-gradient(0deg, #000000a6 0%, #000000a6 100%),url('/images/about-bg.jpeg')",
         "footer-background":
           "linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 100%),url('/images/footer-bg.jpeg')",
+        "navigation-menu":
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 100%), url('/images/menu-header.jpeg')",
       },
     },
   },

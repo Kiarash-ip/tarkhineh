@@ -39,14 +39,11 @@ input:-webkit-autofill:active {
   }
 
   h4 {
-    @apply lg:text-2xl text-xl font-bold capitalize lg:leading-[33.6px] not-italic;
+    @apply text-xl font-bold capitalize not-italic lg:text-2xl lg:leading-[33.6px];
   }
 
   h5 {
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 28px; /* 28px */
+    @apply text-lg font-bold not-italic lg:text-xl;
   }
 
   h6 {
@@ -58,7 +55,7 @@ input:-webkit-autofill:active {
   }
 
   .body-xl {
-    @apply lg:text-xl text-base font-normal lg:leading-9 leading-8 capitalize;
+    @apply text-xl font-normal capitalize leading-9;
   }
   .body-lg {
     font-size: 18px;
@@ -68,11 +65,7 @@ input:-webkit-autofill:active {
     text-transform: capitalize;
   }
   .body-md {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 36px; /* 36px */
-    text-transform: capitalize;
+    @apply !text-sm font-normal capitalize not-italic leading-9 lg:!text-base;
   }
   .body-sm {
     font-size: 14px;
@@ -83,11 +76,7 @@ input:-webkit-autofill:active {
   }
 
   .button-lg {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28.8px;
-    text-transform: capitalize;
+    @apply text-[10px] font-medium capitalize not-italic leading-[18px]  sm:text-xs md:text-sm lg:text-base;
   }
 
   .button-md {
@@ -138,16 +127,12 @@ input:-webkit-autofill:active {
   }
 
   .navbar-link {
-    @apply lg:text-xl text-base font-normal;
-    /* font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 28px; 28px */
+    @apply text-[10px] font-normal leading-[18px] sm:text-sm md:text-base lg:text-xl;
   }
 }
 
 .navbar-link.active {
-  @apply font-bold border-b-2 border-primary-400 text-primary-400;
+  @apply text-xs leading-[21.6px] text-primary-400 md:border-b-2 md:border-primary-400 md:text-base md:font-bold lg:text-xl;
 }
 
 .slider-banner-gradient::after {
@@ -162,7 +147,8 @@ input:-webkit-autofill:active {
     ),
     linear-gradient(0deg, rgba(33, 64, 43, 0.5) 0%, rgba(33, 64, 43, 0.5) 100%);
   background-blend-mode: normal, overlay, normal;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+  box-shadow:
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25),
     0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -173,11 +159,11 @@ input:-webkit-autofill:active {
 }
 
 .swiper__banner__pagination__bullet {
-  @apply w-2 h-2 rounded-full inline-block bg-neutral-600 ml-1 z-40;
+  @apply z-40 ml-1 inline-block h-1 w-1 rounded-full bg-neutral-600 sm:h-2 sm:w-2;
 }
 
 .swiper__banner__pagination__bullet.swiper-pagination-bullet-active {
-  @apply w-[14px] h-[14px] bg-primary-400 border-2 border-primary-50;
+  @apply h-[10px] w-[10px] border-2 border-primary-50 bg-primary-400 sm:h-[14px] sm:w-[14px];
 }
 
 .navigation-dropdown-menu > ul > li:not(:last-child)::after {
@@ -185,7 +171,7 @@ input:-webkit-autofill:active {
   position: absolute;
   top: 100%;
   height: 1px;
-  @apply bg-neutral-400 left-2 right-2;
+  @apply left-2 right-2 bg-neutral-400;
 }
 
 .navigation-dropdown-menu > ul > li:first-child {
@@ -203,7 +189,9 @@ input:-webkit-autofill:active {
   /* display: grid;
   grid-template-rows: 0fr;
   */
-  transition: opacity, scale 0.15s ease-in-out;
+  transition:
+    opacity,
+    scale 0.15s ease-in-out;
 }
 
 .navigation-dropdown-menu.open {
@@ -212,15 +200,54 @@ input:-webkit-autofill:active {
 }
 
 .food__cart--shadow {
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
-    0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.09),
-    0px 9px 5px 0px rgba(0, 0, 0, 0.05), 0px 16px 6px 0px rgba(0, 0, 0, 0.01),
+  box-shadow:
+    0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.1),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.09),
+    0px 9px 5px 0px rgba(0, 0, 0, 0.05),
+    0px 16px 6px 0px rgba(0, 0, 0, 0.01),
     0px 25px 7px 0px rgba(0, 0, 0, 0);
 }
 
 .branch__cart:hover {
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
-    0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.09),
-    0px 9px 5px 0px rgba(0, 0, 0, 0.05), 0px 16px 6px 0px rgba(0, 0, 0, 0.01),
+  box-shadow:
+    0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.1),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.09),
+    0px 9px 5px 0px rgba(0, 0, 0, 0.05),
+    0px 16px 6px 0px rgba(0, 0, 0, 0.01),
     0px 25px 7px 0px rgba(0, 0, 0, 0);
+}
+
+.bannerSwiper .swiper-button-prev,
+.swiper-button-next {
+  @apply absolute top-1/2  !hidden !h-8 !w-8 items-center justify-center md:!flex;
+}
+.bannerSwiper .swiper-button-prev {
+  right: 0;
+}
+.bannerSwiper .swiper-button-next {
+  left: 0;
+}
+
+.bannerSwiper .swiper-pagination {
+  @apply !bottom-[2px] sm:!bottom-1 md:!bottom-[10px];
+}
+
+.swiper-button-prev::after {
+  content: url("/svg/arrow-right.svg") !important;
+  position: absolute;
+  inset: 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+.swiper-button-next::after {
+  content: url("/svg/arrow-right.svg") !important;
+  transform: scaleX(-1);
+  position: absolute;
+  inset: 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
 }

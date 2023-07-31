@@ -2,6 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { forwardRef, useImperativeHandle } from "react";
 import BranchModalCart from "./BranchModalCart";
+import XMarkIcon from "@root/public/svg/close-icon.svg";
 
 interface BranchList {
   id: number;
@@ -140,12 +141,7 @@ const BranchesModal = forwardRef(function BranchesModal(props, ref) {
                       className="absolute left-0 top-1/2 cursor-pointer -translate-y-1/2 w-10 h-10 text-neutral-800"
                       onClick={closeModal}
                     >
-                      <svg width="40" height="40" viewBox="0 0 40 40">
-                        <use
-                          xlinkHref="/svg/close-icon.svg#x-mark"
-                          href="/svg/close-icon.svg#x-mark"
-                        ></use>
-                      </svg>
+                      <XMarkIcon />
                     </button>
                   </div>
 

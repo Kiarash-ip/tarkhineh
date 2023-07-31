@@ -18,9 +18,9 @@ export default function DropDownMenu({
   return (
     <div
       className={clsx(
-        "absolute top-full z-10 min-w-[144px]  navigation-dropdown-menu ",
+        "navigation-dropdown-menu absolute top-full z-10  min-w-[144px] ",
         open ? "open" : "",
-        index % 2 === 0 ? "right-0" : "left-0"
+        index % 2 === 0 ? "right-0" : "left-0",
       )}
     >
       <ul className="flex flex-col overflow-hidden rounded bg-white shadow-[0px_0px_6px_0px_#00000026]">
@@ -28,7 +28,7 @@ export default function DropDownMenu({
           return (
             <li
               key={item.id}
-              className="relative body-sm cursor-pointer group text-neutral-900 hover:bg-neutral-400 transition-colors px-2"
+              className="body-sm group relative cursor-pointer px-2 text-neutral-900 transition-colors hover:bg-neutral-400"
               onClick={clickHandler}
             >
               {item.title}

@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
+// import PaginationContainer from "@public/svg/pagination-container.svg";
 
 // Import Swiper styles
 import "swiper/css";
@@ -37,9 +38,10 @@ const sliderList: SliderList[] = [
 export default function CarouselBanner() {
   const [swiperInstance, setSwiperInstance] = useState<SwiperCore>();
   return (
-    <section className="h-[336px] relative">
+    <section className="relative h-[176px] sm:h-[280px] lg:h-[336px]">
       <Swiper
-        className="h-full"
+        className="bannerSwiper h-full"
+        navigation
         spaceBetween={0}
         autoplay={{
           delay: 5000,
@@ -53,7 +55,7 @@ export default function CarouselBanner() {
         }}
         slidesPerView={1}
         onSwiper={setSwiperInstance}
-        modules={[Pagination, Autoplay]}
+        modules={[Pagination, Autoplay, Navigation]}
       >
         {sliderList.map((item) => {
           return (
@@ -62,43 +64,11 @@ export default function CarouselBanner() {
             </SwiperSlide>
           );
         })}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[5]">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="154"
-            height="33"
-            viewBox="0 0 154 33"
-            fill="none"
-          >
-            <path
-              d="M13.1492 12.9957C15.3255 5.56588 21.9046 0 29.6466 0H125.118C132.571 0 138.998 5.16164 141.261 12.2634C144.25 21.6506 148.867 33 153.711 33C161.97 33 -9.49755 33 0.41389 33C6.07606 33 10.4444 22.2302 13.1492 12.9957Z"
-              fill="white"
-            />
-          </svg>
+        <div className="absolute bottom-0 left-1/2 z-[5] h-[16px] w-[82px] -translate-x-1/2 translate-y-[1px] sm:h-[25px] sm:w-[130px] md:h-[33px] md:w-[154px]">
+          <img src="/svg/pagination-container.svg" className="h-full w-full" />
+          {/* <PaginationContainer /> */}
         </div>
       </Swiper>
-      <button
-        className="absolute top-1/2 -translate-y-1/2 right-6 w-[32px] h-[32px] z-50"
-        onClick={() => swiperInstance?.slidePrev()}
-      >
-        <svg width="32" height="32" viewBox="0 0 32 32">
-          <use
-            xlinkHref="/svg/arrow-right.svg#arrow-right"
-            href="/svg/arrow-right.svg#arrow-right"
-          ></use>
-        </svg>
-      </button>
-      <button
-        className="absolute top-1/2 -translate-y-1/2 left-6 w-[32px] h-[32px] z-50 rotate-180"
-        onClick={() => swiperInstance?.slideNext()}
-      >
-        <svg width="32" height="32" viewBox="0 0 32 32">
-          <use
-            xlinkHref="/svg/arrow-right.svg#arrow-right"
-            href="/svg/arrow-right.svg#arrow-right"
-          ></use>
-        </svg>
-      </button>
     </section>
   );
 }

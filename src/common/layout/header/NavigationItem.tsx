@@ -7,12 +7,13 @@ import type { Menu } from "./Navigation";
 import { useState, useEffect, useRef } from "react";
 import BranchesModal from "@/common/components/BranchesModal";
 import DropDownMenu from "./DropDownMenu";
-import ArrowDown from "@@/public/svg/arrow-down.svg";
+import ArrowDown from "@public/svg/arrow-down.svg";
 import type { ModalRef } from "@/common/types/modal";
 
 interface NavItemProps {
   title: string;
   href: string;
+  Icon: any;
   index: number;
   popup: boolean;
   menu?: Menu[];
@@ -22,6 +23,7 @@ export default function NavigationItem({
   title,
   href,
   menu,
+  Icon,
   index,
   popup,
 }: NavItemProps) {
@@ -38,20 +40,23 @@ export default function NavigationItem({
   return (
     <>
       <li
-        className="relative font-sans flex items-center gap-1 transition-colors text-neutral-800 hover:text-primary-400 cursor-pointer"
+        className="relative flex cursor-pointer items-center gap-1 pb-1 pt-2 font-sans text-neutral-800 transition-colors hover:text-primary-400 md:p-0"
         onPointerEnter={() => setOpen(true)}
         onPointerLeave={() => setOpen(false)}
       >
-        <Link
-          href={href}
-          className={clsx(
-            "relative navbar-link  py-1 flex items-center gap-1 whitespace-nowrap",
-            pathname === href ? "active" : ""
-          )}
-        >
-          {title}
-          {menu?.length && <ArrowDown />}
-        </Link>
+        <div className="flex grow items-center gap-1">
+          {Icon ? <Icon className="h-3 w-3 md:hidden" /> : <></>}
+          <Link
+            href={href}
+            className={clsx(
+              "navbar-link relative flex grow items-center justify-between gap-1 whitespace-nowrap md:justify-normal md:py-1",
+              pathname === href ? "active" : "",
+            )}
+          >
+            {title}
+            {menu?.length && <ArrowDown />}
+          </Link>
+        </div>
         {menu?.length && (
           <DropDownMenu
             open={open}

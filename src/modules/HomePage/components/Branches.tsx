@@ -83,7 +83,7 @@ export default function Branches() {
   return (
     <section className="container mx-auto my-12 flex flex-col gap-6 items-center">
       <h4 className="text-neutral-900">ترخینه گردی</h4>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid lg:grid-cols-4 grid-cols-2 gap-6">
         {branchesList.map((branch) => {
           return (
             <BranchCart

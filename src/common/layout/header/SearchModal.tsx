@@ -1,6 +1,7 @@
 import SearchInput from "@/common/components/SearchInput";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import XMarkIcon from "@root/public/svg/close-icon.svg";
 import { forwardRef, useImperativeHandle } from "react";
 
 const SearchModal = forwardRef(function SearchModal(props, ref) {
@@ -14,7 +15,7 @@ const SearchModal = forwardRef(function SearchModal(props, ref) {
         openModal,
       };
     },
-    []
+    [],
   );
 
   function closeModal() {
@@ -52,31 +53,26 @@ const SearchModal = forwardRef(function SearchModal(props, ref) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="transform w-full max-w-[600px] overflow-hidden rounded-2xl bg-white  text-left align-middle shadow-xl transition-all pb-12">
-                  <div className="relative p-6 bg-neutral-400 mb-10">
+                <Dialog.Panel className="w-full max-w-[600px] transform overflow-hidden rounded-2xl bg-white  pb-12 text-left align-middle shadow-xl transition-all">
+                  <div className="relative mb-10 bg-neutral-400 p-6">
                     <Dialog.Title
                       as="h6"
-                      className="font-semibold text-center text-neutral-900 "
+                      className="text-center font-semibold text-neutral-900 "
                     >
                       جستجو
                     </Dialog.Title>
                     <button
-                      className="absolute left-0 top-1/2 mx-6 cursor-pointer -translate-y-1/2 w-10 h-10 text-neutral-800"
+                      className="absolute left-0 top-1/2 mx-6 h-10 w-10 -translate-y-1/2 cursor-pointer text-neutral-800"
                       onClick={closeModal}
                     >
-                      <svg width="40" height="40" viewBox="0 0 40 40">
-                        <use
-                          xlinkHref="/svg/close-icon.svg#x-mark"
-                          href="/svg/close-icon.svg#x-mark"
-                        ></use>
-                      </svg>
+                      <XMarkIcon />
                     </button>
                   </div>
 
-                  <p className="body-md text-neutral-900 text-center mb-5">
+                  <p className="body-md mb-5 text-center text-neutral-900">
                     لطفا متن خود را تایپ و سپس دکمه Enter را بزنید.
                   </p>
-                  <SearchInput />
+                  <SearchInput className="max-w-[409px]" />
                 </Dialog.Panel>
               </Transition.Child>
             </div>

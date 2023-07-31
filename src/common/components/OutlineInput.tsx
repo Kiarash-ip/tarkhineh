@@ -63,13 +63,13 @@ const OutlineInput = ({
             sx: {
               fontFamily: "inherit",
               color: tw_theme?.colors.neutral[200],
+              fontSize: "16px",
             },
+            className: "body-md",
           }}
           {...field}
           inputProps={{
-            style: {
-              // height: "100%",
-            },
+            className: "body-md",
           }}
           id="outlined-basic"
           label={label}
@@ -80,7 +80,7 @@ const OutlineInput = ({
           helperText={meta.touched && meta.error}
         />
         {multiline ? (
-          <span className="block text-left mt-1 text-neutral-500 text-xs font-normal">
+          <span className="mt-1 block text-left text-xs font-normal text-neutral-500">
             200 / {meta.value.length}
           </span>
         ) : null}

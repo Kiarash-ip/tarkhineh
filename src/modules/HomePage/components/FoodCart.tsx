@@ -7,13 +7,13 @@ interface FoodCartProps {
 
 export default function FoodCart({ src, title }: FoodCartProps) {
   return (
-    <div className="relative max-w-[350px] min-w-[152px] flex flex-col items-center grow">
-      <div className="food__cart--shadow absolute bottom-0 h-[160px] rounded-lg border border-primary-400 bg-primary-400 w-full"></div>
-      <div className="w-[83%] z-[2]">
-        <img src={src} className="w-full" />
+    <div className="relative flex min-w-[152px] max-w-[350px] grow flex-col items-center">
+      <div className="food__cart--shadow absolute bottom-0 h-1/2 w-full rounded-lg border border-primary-400 bg-primary-400"></div>
+      <div className="z-[2] w-[83%]">
+        <img src={src} className="aspect-square w-full object-contain" />
       </div>
-      <div className="group food__cart--shadow translate-y-1/2 text-center w-full max-w-[155px] min-w-[96px] px-4 py-2 transition-colors bg-neutral-200 hover:bg-primary-400 rounded cursor-pointer">
-        <span className="body-xl text-neutral-900 group-hover:text-white">
+      <div className="food__cart--shadow group w-3/4 max-w-[155px] translate-y-1/2 cursor-pointer rounded bg-neutral-200 px-2 py-2 text-center transition-colors hover:bg-primary-400 lg:min-w-[96px] lg:px-4">
+        <span className="lg:body-xl md:body-lg text-neutral-900 group-hover:text-white">
           {title}
         </span>
       </div>

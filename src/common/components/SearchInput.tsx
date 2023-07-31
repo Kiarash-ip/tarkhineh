@@ -1,16 +1,26 @@
 import React from "react";
 import SearchIcon from "@root/public/svg/search-normal.svg";
+import clsx from "clsx";
 
-export default function SearchInput() {
+interface SearchInputProps {
+  className?: string;
+}
+
+export default function SearchInput({ className = "" }: SearchInputProps) {
   return (
-    <div className="w-full max-w-[409px] flex items-center justify-between px-4 py-2 mx-auto rounded-lg transition-colors border border-neutral-500 [&:has(input:focus)]:border-primary-400 text-neutral-900">
+    <div
+      className={clsx(
+        "mx-auto flex w-full items-center justify-between rounded-lg border border-neutral-500 px-4 py-2 text-neutral-900 transition-colors [&:has(input:focus)]:border-primary-400",
+        className,
+      )}
+    >
       <input
         type="search"
         placeholder="جستجو"
-        className="caption-md bg-transparent w-full max-w-[276px] focus:outline-none"
+        className="sm:caption-md caption-sm w-full max-w-[276px] bg-transparent leading-[18px] focus:outline-none"
       />
       <button>
-        <SearchIcon className="w-6 h-6" />
+        <SearchIcon className="h-4 w-4 sm:h-6 sm:w-6" />
       </button>
     </div>
   );
